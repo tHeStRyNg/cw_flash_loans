@@ -39,7 +39,7 @@ async function getPrice(addressFrom, addressTo, amountInHuman) {
 const main = async () => {
   const addressFrom = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"; // USDC
   const addressTo = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; // WETH
-  const amountInHuman = "2900";
+  const amountInHuman = "1"; // For x in amountInHuman USDC, we get amoutOut of WETH
 
   const amountOut = await getPrice(addressFrom, addressTo, amountInHuman);
   console.log(amountOut);
