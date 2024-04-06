@@ -26,23 +26,33 @@ module.exports = {
   },
   networks: {
     hardhat: {
-      forking: {
-        url: "https://eth-mainnet.alchemyapi.io/v2/cQ2Bb9ZudvJZUA0TjgzVYUOHfgrkYpa8",
+      mainnet_eth_fork: {
+        url: "https://eth-mainnet.g.alchemy.com/v2/9K-w-ngLiBNqwHbim87y6o5NzaxSlSG7",
+        accounts: [
+          "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+        ],
       },
-    },
-    testnet: {
-      url: "https://eth-rinkeby.alchemyapi.io/v2/msz7murQ32cXtxS2vPeD4yrLeXiUvNBh",
-      chainId: 4,
+    testnet_eth: {
+      url: "https://eth-sepolia.g.alchemy.com/v2/ZcGtZcla31gH01TpayMUOjUAFBvJ51BK",
+      chainId: 11155111,
       accounts: [
-        "0xc202082599bca532e33fd0bbc3d404c9957a9356dfed7680159390fa9f7cc486",
+        "0xb15239ee91fd5fd6c7f8be7f80cb26f7780cef6264fe41373c9eb048e5accfc3",
+      ],
+    },
+    testnet_bsc: {
+      url: "https://bsc-testnet-rpc.publicnode.com",
+      chainId: 97,
+      accounts: [
+        "0xb15239ee91fd5fd6c7f8be7f80cb26f7780cef6264fe41373c9eb048e5accfc3",
       ],
     },
     mainnet: {
-      url: "https://eth-mainnet.alchemyapi.io/v2/cQ2Bb9ZudvJZUA0TjgzVYUOHfgrkYpa8",
+      url: "https://eth-mainnet.g.alchemy.com/v2/9K-w-ngLiBNqwHbim87y6o5NzaxSlSG7",
       chainId: 1,
       accounts: [
-        "0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d",
+        "0xe027e853c7e47d8875973ec0b2fe59a7e162f52935c0051dda5ee845e97d273b",
       ],
     },
   },
+ },
 };
