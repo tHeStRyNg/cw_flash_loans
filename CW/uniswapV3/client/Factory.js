@@ -1,7 +1,7 @@
 const { ethers } = require("ethers");
 
 const provider = new ethers.providers.JsonRpcProvider(
-  "https://eth-mainnet.alchemyapi.io/v2/cQ2Bb9ZudvJZUA0TjgzVYUOHfgrkYpa8"
+  "https://eth-mainnet.g.alchemy.com/v2/9K-w-ngLiBNqwHbim87y6o5NzaxSlSG7"
 );
 
 const addressFactory = "0x1F98431c8aD98523631AE4a59f267346ea31F984";

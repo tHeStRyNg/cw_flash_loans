@@ -11,7 +11,8 @@ const { erc20ABI, factoryABI, pairABI, routerABI } = require("./AbiList");
 
 // Standard Provider
 const provider = new ethers.providers.JsonRpcProvider(
-  "https://eth-mainnet.alchemyapi.io/v2/cQ2Bb9ZudvJZUA0TjgzVYUOHfgrkYpa8"
+  // Connection To Alchemy targeting the Network Api desired - Doesnt work on Sepolia ETh Testnet
+  "https://eth-mainnet.g.alchemy.com/v2/9K-w-ngLiBNqwHbim87y6o5NzaxSlSG7"
 );
 
 // Connect to Factory
@@ -51,5 +52,6 @@ const getPrices = async (amountInHuman) => {
   console.log(amountOutHuman);
 };
 
-const amountInHuman = "1";
+const amountInHuman = "1"; // If you use 1 WETH how many Sushi Token you will get at current Price
 getPrices(amountInHuman);
+//getPrices(amountInHuman, "If you use", amountInHuman, "WETH how many Sushi Token you will get at current Price.");

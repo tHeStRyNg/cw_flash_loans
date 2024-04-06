@@ -1,5 +1,6 @@
 // https://docs.uniswap.org/protocol/reference/deployments
 // https://docs.uniswap.org/sdk/guides/creating-a-trade
+// https://docs.uniswap.org/sdk/v3/overview
 
 const { ethers } = require("ethers");
 
@@ -8,7 +9,7 @@ const {
 } = require("@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json");
 
 const provider = new ethers.providers.JsonRpcProvider(
-  "https://eth-mainnet.alchemyapi.io/v2/cQ2Bb9ZudvJZUA0TjgzVYUOHfgrkYpa8"
+  "https://eth-mainnet.g.alchemy.com/v2/9K-w-ngLiBNqwHbim87y6o5NzaxSlSG7"
 );
 
 async function getPrice(addressFrom, addressTo, amountInHuman) {
