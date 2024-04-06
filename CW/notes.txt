@@ -1,0 +1,306 @@
+https://github.com/jspruance/aave-flash-loan-tutorial
+
+ETH TestNet Wallets
+
+GoreliETH - 0xC7eF873163173913691Baed7E54875bBCfDDa6a3
+SepoliaETH - 0xC7eF873163173913691Baed7E54875bBCfDDa6a3
+LineaETH - 0xC7eF873163173913691Baed7E54875bBCfDDa6a3
+
+
+export WEB3_INFURA_PROJECT_ID=5a238b43a28f477ebed39651f03682c0
+export ETHERSCAN_TOKEN=XE9NTB7AKEEW6RIG7DA5XJ3M6S81RT24BY
+export PRIVATE_KEY=0xb15239ee91fd5fd6c7f8be7f80cb26f7780cef6264fe41373c9eb048e5accfc3
+export POLYGONSCAN_KEY=QRWEEWDSKI8KDWVBZ865R9GW3584JRIFNH
+export_ALCHEMY_KEY=https://eth-sepolia.g.alchemy.com/v2/ZcGtZcla31gH01TpayMUOjUAFBvJ51BK
+
+Dev P Key 0xC7eF873163173913691Baed7E54875bBCfDDa6a3
+
+https://sepolia.infura.io/v3/5a238b43a28f477ebed39651f03682c0
+
+
+
+REPORT_GAS=true npx hardhat test
+
+root@flash1:/opt/c/aave-flash-loan-tutorial/aave-flash-loan-v3# npx hardhat run --network goerli scripts/deployFlashLoan.js
+deploying...
+Flash loan contract deployed:  0xe77B60d12ae0C63D6E95CCB30e3c6a0095988221
+Flash loan contract deployed:  0x94b7ebf8aeF947d0a3E752C479f22b1570Ea7c7C
+Contract Address: 0xe3fc28099526d3a00aedce70d29c24b074375d98
+Contract Address: 0x871f8A19FA11eED276068946d80feD7C7C2d7e3f
+
+
+-- REMIX -- Ether IDE
+https://remix.ethereum.org/
+
+import {FlashLoanReceiverBase} from "https://github.com/aave/protocol-v2/blob/master/contracts/flashloan/base/FlashLoanReceiverBase.sol"; 
+import {ILendingPool} from "https://github.com/aave/protocol-v2/blob/master/contracts/interfaces/ILendingPool.sol"; 
+import {ILendingPoolAddressesProvider} from "https://github.com/aave/protocol-v2/blob/master/contracts/interfaces/ILendingPoolAddressesProvider.sol"; 
+import {IERC20} from "https://github.com/aave/protocol-v2/blob/master/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
+
+import {FlashLoanSimpleReceiverBase} from "https://github.com/aave/aave-v3-core/blob/master/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol";
+import {IPoolAddressesProvider} from "https://github.com/aave/aave-v3-core/blob/master/contracts/interfaces/IPoolAddressesProvider.sol";
+import {IERC20} from "https://github.com/aave/aave-v3-core/blob/master/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
+
+
+0x16dA4541aD1807f4443d92D26044C1147406EB80,1000000000 // 1,000 USDC
+0x16dA4541aD1807f4443d92D26044C1147406EB80,1000000 // 1 USDC
+
+
+POOL - 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951
+
+
+- AAVE - V3 - TESTNET ADDRESSES - 
+https://docs.aave.com/developers/deployed-contracts/v3-testnet-addresses
+
+LOAN FROM AAVE USDT
+
+UniSwap V3 	DAI/USDT $0.99
+Quickswap (v3) 	DAI/USDT $1.00
+
+0.1 per coin
+
+WETH - 50/100 - DONE
+AAVE SUBSCRIPTION BASED - 200 - 
+INFURA
+
+ETH LIVE WALLET USED ON AAVE --> 0xC7eF873163173913691Baed7E54875bBCfDDa6a3
+Generally, the lender for a flash loan will charge an interest fee - for example, Aave charges 0.09% of the amount loaned upon repayment. You'll also pay standard gas or network fees.
+
+Have gas fees lowered?
+With Aave V3, gas costs have been optimized for all the relevant functions. Gas costs have been reduced by around 20-25% across the board.
+
+1 - Pickup a Main Chain as we cant smart contracts between 2 dif chains has to be on same chain - ETH being biggest
+ -- Total Value Locked All Chains -- https://www.youtube.com/watch?v=m0VBsAOMsw8&ab_channel=DappUniversity
+https://defillama.com/chains
+
+2 - Choose the Dexes - What Exchanges to use within the chain chosen above
+https://defillama.com/protocols/dexes
+
+Example:
+Dex 1 - Uniswap   - https://app.uniswap.org
+Dex 2 - SushiSwap - https://www.sushi.com/swap
+
+3 - Monitor Swap Events between exchanges so we know there was a big purchase on 1 and price wil lget off between exchanges
+For this we will monitor contract swap events and monitor from here -- https://docs.uniswap.org/contracts/v2/reference/smart-contracts/pair#swap
+These are the events reference that wil lappear on a contract that will relate to a smart-contract event.
+
+4 - Pick tokens that we will be watching for the arbitrage purpose -- https://ehterscan.io/tokens (ERC-20 Token Tracker)
+ERC-20 Standard - https://ethereum.org/en/developers/docs/standards/tokens/erc-20
+BTC and ETH arent ERC-20 Native so or us to trade these we will need to wrap these on WBTC and WETH for example -- https://wbtc.network
+reason for this is that within the smart-contract there will be only available possibility to work with ERC-20 tokens.
+
+Also we can monitor https://dexscreener.com 
+
+Example:
+Token 1 - 
+Token 2 - 
+
+5 - Pick a Flash Loan Provider - Liquidity Provider
+5.1 - Balancer - https://docs.balancer.fi/reference/contracts/flash-loans.html - Recommended because it has 0 fees
+5.2 - DodoEx - https://dodoex.io/en
+5.3 - Polygon - https://polygon.technology
+5.4 - Aave - https://aave.com
+
+6 - Implement the Swap Arbitrage within the smart-contract after receive the money from Liquidity Provider
+https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/trading-from-a-smart-contract
+
+Use function --> swapExactTokensForTokens (Swap Tokens for Tokens - for ERC-20 based)
+
+7 - Create Searcher Bot that looks for Arbitrage opportunity
+
+8 - Deploy to Server running 24/7
+
+
+NEW -- https://www.youtube.com/watch?v=du8w5VSNdEg&ab_channel=DappUniversity
+
+how to check price of a token cross several exchanges
+
+https://coingecko.com/en/coins/bitcoin (scroll to mid screen)
+
+
+https://www.youtube.com/watch?v=AS_8_C5fTOE&ab_channel=EatTheBlocks
+https://github.com/jklepatch/eattheblocks (Amazing Course)
+https://github.com/jklepatch/eattheblocks/tree/master/screencast/298-arbitrage-uniswap-sushiswap
+
+
+
+https://github.com/Muhindo-Galien/Aave-Flash-Loan-Arbitrage
+https://medium.com/coinmonks/a-completeguide-to-aave-flash-loan-arbitrage-using-hardhat-db5bb88eb4fc
+UBUNTU 20X LTS
+
+mkdir /opt/w
+
+cd /opt/w
+
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+
+npm install --save-dev hardhat
+
+npx hardhat
+
+yarn add --env=dev @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers @nomiclabs/hardhat-etherscan @nomiclabs/hardhat-waffle chai ethereum-waffle hardhat hardhat-contract-sizer hardhat-deploy hardhat-gas-reporter prettier prettier-plugin-solidity solhint solidity-coverage dotenv
+
+yarn add @aave/core-v3
+
+npm install --save-dev "@nomicfoundation/hardhat-ethers@^3.0.2" # Doesnt work
+npm install --save-dev "@nomicfoundation/hardhat-ethers@^3.0.2" --legacy-peer-deps # Works
+
+https://medium.com/coinmonks/a-completeguide-to-aave-flash-loan-arbitrage-using-hardhat-db5bb88eb4fc
+
+
+https://www.youtube.com/watch?v=EUdWm0ldxqE&ab_channel=SolidityRepository
+
+https://etherscan.io/tx/0x94916fbcacd7b3d7e0c51872323d96bd6d3fc81e4cbfa81b99e82e1c7d86afca
+
+Token - Tether -- https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7
+
+https://faucetlink.to/sepolia
+
+https://github.com/brownie-mix/aave-flashloan-mix
+AAVE V2 - LENDING POOL - MAIN CONTRACT - 0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9
+
+AAVE V2 - WETH - 0xa0d9C1E9E48Ca30c8d8C3B5D69FF5dc1f6DFfC24
+
+BALANCER SEPOLIA POOLS - https://app.balancer.fi/#/sepolia/
+
+  sepolia:
+    aave_lending_pool_v2: "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
+    weth: "0x7b79995e5f793a07bc00c21412e50ecae098e7f9"
+
+curl https://mainnet.infura.io/v3/5a238b43a28f477ebed39651f03682c0 \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc": "2.0", "method": "trace_transaction","params": ["0x269ffab8e15ae15ab7e1573cf43c593798fddccc6d4662ea5c98aa3a8892b80f"],"id": 1}'
+
+
+https://mev-share.flashbots.net/
+
+https://eigenphi.io/
+https://furucombo.app/
+
+https://github.com/paco0x/amm-arbitrageur/tree/master
+
+https://gitpod.io/workspaces
+
+
+
+https://bscan.com - Binance Similar Etherscan
+WBNB - Wrapped bnb
+BUSD - Binance USD
+
+ABI - Application Binary Interface
+IERC20 - Interface for the ERC20
+
+GoogleSheets - SyncWith Extension Add on Api Rest Framework
+https://docs.google.com/spreadsheets/d/1I1RNjSci6SbG5Y_ietKzP1XA6hNjb9WKrkKK1deWJBA/edit#gid=498417839
+
+Setup the REST API Feed from Poloniex on the following EndPoint:
+https://api-docs.poloniex.com/spot/api/public/market-data
+
+Market Data APi REST Get Method -> https://api.poloniex.com/markets/ticker24h
+
+-- MUST Watch II - UPDATED Resources (Jan 2023)
+
+Clone GitHub Repo:
+git clone https://github.com/CryptoWizardsNet/poloniex-triarb-new.git triarb
+
+If you have never used GitHub before or do not have GitHub working on your command line:
+https://www.youtube.com/watch?v=CKcqniGu3tA
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Google Colab Notebook:
+https://colab.research.google.com/drive/1gvX613_dwF5p6Hea9xMYeC-KokE9e9C_?usp=sharing
+https://colab.research.google.com/drive/1vizSHq-BvhaMZmWNK1-dLW6gL9qPbQ39#scrollTo=VgtvROuOYdag --> My Copy
+
+Poloniex latest docs:
+https://docs.poloniex.com/#introduction
+
+Binance latest docs:
+https://binance-docs.github.io/apidocs/spot/en/#kline-candlestick-data
+
+
+Colab: - Similar to Juniper Notebooks
+https://colab.research.google.com/?utm_source=scs-index
+
+
+Retrieving list of cryptos...
+Structuring cryptos into triangular pairs (2 mins)...
+Running scanning algorithm (will run until killed)...
+Running orderbook
+{'profit_loss': 0.02677642647142875, 'real_rate_perc': 0.026776426471428746, 'contract_1': 'USDT_USDC', 'contract_2': 'USDD_USDC', 'contract_3': 'USDD_USDT', 'contract_1_direction': 'base_to_quote', 'contract_2_direction':                'quote_to_base', 'contract_3_direction': 'base_to_quote'}
+Running orderbook
+{'profit_loss': 0.02677642647142875, 'real_rate_perc': 0.026776426471428746, 'contract_1': 'USDT_USDC', 'contract_2': 'USDD_USDC', 'contract_3': 'USDD_USDT', 'contract_1_direction': 'base_to_quote', 'contract_2_direction': 'quote_to_base', 'contract_3_direction': 'base_to_quote'}
+Running orderbook
+{'profit_loss': 0.02716314942209408, 'real_rate_perc': 0.02716314942209408, 'contract_1': 'USDT_USDC', 'contract_2': 'USDD_USDC', 'contract_3': 'USDD_USDT', 'contract_1_direction': 'base_to_quote', 'contract_2_direction': 'quote_to_base', 'contract_3_direction': 'base_to_quote'}
+
+
+EXPLANATION ON TRIANGULAR ARBITRAGE POSSIBILITY FOUND 1
+'contract_1': 'USDT_USDC' - BASE TO QUOTE - SO SWAP THIS USDT_USDC 
+'contract_2': 'USDD_USDC' - QUOTE TO BASE - SO SWAP THIS USDC_USDD
+'contract_3': 'USDD_USDT' - BASE TO QUOTE - SO SWAP THIS USDD_USDT
+
+### Sections 1 to 5
+
+GoogleSheets - SyncWith Extension Add on Api Rest Framework
+https://docs.google.com/spreadsheets/d/1I1RNjSci6SbG5Y_ietKzP1XA6hNjb9WKrkKK1deWJBA/edit#gid=498417839
+
+Setup the REST API Feed from Poloniex on the following EndPoint:
+https://api-docs.poloniex.com/spot/api/public/market-data
+
+Market Data APi REST Get Method -> https://api.poloniex.com/markets/ticker24h
+
+-- MUST Watch II - UPDATED Resources (Jan 2023)
+
+Clone GitHub Repo:
+git clone https://github.com/CryptoWizardsNet/poloniex-triarb-new.git triarb
+
+If you have never used GitHub before or do not have GitHub working on your command line:
+https://www.youtube.com/watch?v=CKcqniGu3tA
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Google Colab Notebook:
+https://colab.research.google.com/drive/1gvX613_dwF5p6Hea9xMYeC-KokE9e9C_?usp=sharing
+https://colab.research.google.com/drive/1vizSHq-BvhaMZmWNK1-dLW6gL9qPbQ39#scrollTo=VgtvROuOYdag --> My Copy
+
+Poloniex latest docs:
+https://docs.poloniex.com/#introduction
+
+Binance latest docs:
+https://binance-docs.github.io/apidocs/spot/en/#kline-candlestick-data
+
+
+Colab: - Similar to Juniper Notebooks
+https://colab.research.google.com/?utm_source=scs-index
+
+
+Retrieving list of cryptos...
+Structuring cryptos into triangular pairs (2 mins)...
+Running scanning algorithm (will run until killed)...
+Running orderbook
+{'profit_loss': 0.02677642647142875, 'real_rate_perc': 0.026776426471428746, 'contract_1': 'USDT_USDC', 'contract_2': 'USDD_USDC', 'contract_3': 'USDD_USDT', 'contract_1_direction': 'base_to_quote', 'contract_2_direction':                'quote_to_base', 'contract_3_direction': 'base_to_quote'}
+Running orderbook
+{'profit_loss': 0.02677642647142875, 'real_rate_perc': 0.026776426471428746, 'contract_1': 'USDT_USDC', 'contract_2': 'USDD_USDC', 'contract_3': 'USDD_USDT', 'contract_1_direction': 'base_to_quote', 'contract_2_direction': 'quote_to_base', 'contract_3_direction': 'base_to_quote'}
+Running orderbook
+{'profit_loss': 0.02716314942209408, 'real_rate_perc': 0.02716314942209408, 'contract_1': 'USDT_USDC', 'contract_2': 'USDD_USDC', 'contract_3': 'USDD_USDT', 'contract_1_direction': 'base_to_quote', 'contract_2_direction': 'quote_to_base', 'contract_3_direction': 'base_to_quote'}
+
+
+## EXPLANATION ON TRIANGULAR ARBITRAGE POSSIBILITY FOUND 1
+'contract_1': 'USDT_USDC' - BASE TO QUOTE - SO SWAP THIS USDT_USDC 
+'contract_2': 'USDD_USDC' - QUOTE TO BASE - SO SWAP THIS USDC_USDD
+'contract_3': 'USDD_USDT' - BASE TO QUOTE - SO SWAP THIS USDD_USDT
+
+### Section 6 - Important Notes
+
+#pip3 install requests
+
+import requests
+import json
+
+prices = requests.get("https://api.poloniex.com/markets/price")
+if prices.status_code == 200:
+    print(prices.text)
+
+
+
+
+
