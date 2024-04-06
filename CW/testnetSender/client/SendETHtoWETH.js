@@ -12,9 +12,9 @@ const privateKey =
 const walletSigner = new ethers.Wallet(privateKey, providerTestnet);
 
 const exchangeETH = async () => {
-  const sendValueHuman = "0.01";
+  const sendValueHuman = "0.01"; // 33.57 USD on 06.04.2024
   const gasPrice = await providerTestnet.getGasPrice();
-  const nonce = 211; // web3.eth.getTransactionCount(myAddress)
+  const nonce = 212; // web3.eth.getTransactionCount(myAddress)
   const txBuild = {
     from: myAddress, // from,
     to: "0x4C0A90E1370A91269546B752Bca379A2583c12D1", // to (WETH on Sepolia ETH TestNet 0xb16F35c0Ae2912430DAc15764477E179D9B9EbEa),
