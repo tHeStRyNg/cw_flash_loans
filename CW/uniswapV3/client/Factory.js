@@ -21,7 +21,7 @@ const getPool = async () => {
     addressANKR,
     3000
   );
-  console.log(addressPool);
+  console.log(addressPool); // Contract Pool
 };
 
 getPool();
