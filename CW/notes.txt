@@ -300,6 +300,25 @@ prices = requests.get("https://api.poloniex.com/markets/price")
 if prices.status_code == 200:
     print(prices.text)
 
+# Crypto trading Execution with Flash Loans Web3 and HardHat Course
+
+### Section 11 - Hardhat and Token Swap
+### Forking Mainnet using Hardhat (new tech) instead of Truffle and Ganache (old tech)
+ - How to not spend real ethereum using hardhat for forking mainnet and having local node copy  to achieve token swapping
+
+ - http://hathat.org
+
+
+## Hardhat Instalation
+### hardhat site --> documentation --> installation
+ ``` npm install --save-dev hardhat ```
+
+### New HardHat Project 
+``` npx hardhat ```
+
+### Harhat coonfiguration File 
+``` hardhat.config.js ```
+
 
 
 
