@@ -73,7 +73,7 @@ describe("Read and Write to the Blockchain", () => {
       ownerSigner
     );
 
-    const myAddress = "0xC7eF873163173913691Baed7E54875bBCfDDa6a3";
+    const myAddress = "0xC7eF873163173913691Baed7E54875bBCfDDa6a3"; // address from mainnet node fork account 1
 
     const amountOut = await getAmountOut();
 
