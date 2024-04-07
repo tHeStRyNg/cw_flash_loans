@@ -20,7 +20,7 @@ describe("Read and Write to the Blockchain", () => {
 
   // connecting to provider
   provider = new ethers.providers.JsonRpcProvider(
-    "https://eth-mainnet.alchemyapi.io/v2/cQ2Bb9ZudvJZUA0TjgzVYUOHfgrkYpa8"
+    "https://eth-sepolia.g.alchemy.com/v2/ZcGtZcla31gH01TpayMUOjUAFBvJ51BK"
   );
 
   // contract addresses
@@ -73,7 +73,7 @@ describe("Read and Write to the Blockchain", () => {
       ownerSigner
     );
 
-    const myAddress = "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266";
+    const myAddress = "0xC7eF873163173913691Baed7E54875bBCfDDa6a3";
 
     const amountOut = await getAmountOut();
 
