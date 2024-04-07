@@ -34,7 +34,7 @@ module.exports = {
       url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
       chainId: 97,
       accounts: [
-        "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+        "0xb15239ee91fd5fd6c7f8be7f80cb26f7780cef6264fe41373c9eb048e5accfc3",
       ],
     },
     mainnet: {

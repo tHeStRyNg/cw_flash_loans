@@ -13,7 +13,7 @@ import "./interfaces/IUniswapV2Factory.sol";
 import "./interfaces/IERC20.sol";
 
 contract PancakeFlashSwap {
-    using SafeERC20 for IERC20;
+    using SafeERC20 for IERC20; // Approval for flash loans to be done as pre-requirement otherswise wont be approved.
 
     // Factory and Routing Addresses
     address private constant PANCAKE_FACTORY =
