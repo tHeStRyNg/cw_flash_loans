@@ -305,9 +305,9 @@ if prices.status_code == 200:
 ### Section 11 - Hardhat and Token Swap
 ### Forking Mainnet using Hardhat (new tech) instead of Truffle and Ganache (old tech)
  - How to not spend real ethereum using hardhat for forking mainnet and having local node copy  to achieve token swapping
+ - https://hardhat.org/hardhat-runner/docs/getting-started#installation
 
- - http://hathat.org
-
+## Code Location for this module --> CW/hardhatTest
 
 ## Hardhat Instalation
 ### hardhat site --> documentation --> installation
@@ -319,7 +319,37 @@ if prices.status_code == 200:
 ### Harhat coonfiguration File 
 ``` hardhat.config.js ```
 
+### hardHat TDD (Test Driven Development)
+ - So we can use npx hardhat test and will load scripts within test folder
+- We can TDD as follows on Hardhat JS:
 
+
+const { expect, assert } = require("chai");
+const { ethers } = require("hardhat");
+
+describe("My Test Group", () => {
+  const myName = "Shaun";
+  const myAge = 36;
+  const myColor = "blue";
+
+  it("tests my name is 'Shaun'", () => {
+    expect(myName).equals("Shaun");
+  });
+
+  it("tests my age is not '100'", () => {
+    expect(myAge).not.equals(100);
+  });
+
+  describe("My color", () => {
+    it("has a color", () => {
+    assert(myColor);  
+    });
+  
+  it("shows my color as blue", () => {
+    expect(myColor).equals("blue");
+  });
+});  
+});
 
 
 
